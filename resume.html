@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walterhacks - Cybersecurity & IT Specialist CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS Variables for Easy Customization */
+        :root {
+            --primary-color: #06b6d4; /* Cyan for highlights/links */
+            --secondary-color: #0891b2; /* Darker cyan for secondary elements */
+            --bg-color: #111827; /* Dark gray background */
+            --text-color: #f3f4f6; /* Light gray text */
+            --card-bg: #1f2937; /* Slightly lighter dark gray for cards */
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --border-radius: 8px;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-smooth: antialiased;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #67e8f9;
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #34495e; /* Dark background */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .main-content {
+                /* Left column (Experience, Education) is 2 parts, Right (Contact, Skills, Certs) is 1 part */
+                grid-template-columns: 2fr 1fr;
+            }
+            .right-column {
+                order: 2; /* Put right column last on desktop for visual flow */
+            }
+        }
+
+        /* Section Styling */
+        .section {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid rgba(8, 145, 178, 0.3);
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-item i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Experience and Education Timeline */
+        .timeline-item {
+            border-left: 2px solid #ccc;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 2px solid var(--card-bg);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
+        }
+
+        .timeline-date {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        .timeline-details ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            list-style-type: disc;
+        }
+        
+        .timeline-details li {
+            margin-bottom: 5px;
+        }
+
+        /* Skills Roadmap */
+        .skills-roadmap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            color: #67e8f9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 4px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Certifications (Compact/Grid Style) */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .cert-card {
+            background: #116dca;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 400;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            line-height: 1.2;
+            transition: background 0.3s;
+        }
+        
+        .cert-card:hover {
+            background: #3a4f64;
+        }
+
+        .cert-card i {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+        
+        .cert-title {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f172a, #0e7490);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(8, 145, 178, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #67e8f9;
+            margin: 0 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #22d3ee;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans antialiased">
+
+    <!-- Hero Section -->
+    <section class="min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-cyan-900/20 to-black text-center px-4 pt-32 pb-20 md:pt-36 md:pb-24">
+        <div class="w-full max-w-6xl px-4 sm:px-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-cyan-400">Walter O. Owuor</h1>
+            <h2 class="text-xl md:text-2xl text-gray-300 mb-8">Cybersecurity & IT Specialist</h2>
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <a href="#contact" class="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                    Contact Me
+                </a>
+                <a href="index.html" class="bg-transparent border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-900/30 px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                    View Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Header -->
+  
+    <div class="container">
+        <div class="main-content">
+            
+            <div class="right-column">
+                
+                <section class="section" style="border-left: 5px solid var(--secondary-color);">
+                    <h2 class="section-title"><i class="fas fa-handshake"></i> Get in Touch</h2>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+254743149316" target="_blank" title="Call Walter">+254 743 149 316 (Click to Dial)</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp" style="color: #25d366;"></i>
+                        <a href="https://wa.me/254743149316" target="_blank" title="WhatsApp Walter">WhatsApp (Click to Chat)</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ojwallah1@gmail.com" target="_blank" title="Email Walter">ojwallah1@gmail.com (Click to Email)</a>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-cogs"></i> Relevant Skills</h2>
+                    <div class="skills-roadmap">
+                        <span class="skill-tag">Linux Administration</span>
+                        <span class="skill-tag">SOC Monitoring & IR</span>
+                        <span class="skill-tag">SIEM & Log Management</span>
+                        <span class="skill-tag">Penetration Testing</span>
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                        <span class="skill-tag">Scripting & Automation</span>
+                        <span class="skill-tag">OSINT & CTI</span>
+                        <span class="skill-tag">System Hardening</span>
+                        <span class="skill-tag">Malware Remediation</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications & Licenses</h2>
+                    <div class="certifications-grid">
+                        <div class="cert-card"><i class="fas fa-network-wired"></i> <span class="cert-title">Cisco Certified Network Associate (CCNA)</span></div>
+                        <div class="cert-card"><i class="fas fa-user-secret"></i> <span class="cert-title">Cisco Ethical Hacker</span></div>
+                        <div class="cert-card"><i class="fas fa-network-wired"></i> <span class="cert-title">Networking Basics (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-lock"></i> <span class="cert-title">Network Support & Security (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-desktop"></i> <span class="cert-title">Computer Hardware Basics (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-user-secret"></i> <span class="cert-title">Ethical Hacker (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-shield-alt"></i> <span class="cert-title">Introduction to Cybersecurity (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-laptop-medical"></i> <span class="cert-title">Endpoint Security (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-route"></i> <span class="cert-title">Networking Technician Career Path (Cisco)</span></div>
+                        <div class="cert-card"><i class="fab fa-linux"></i> <span class="cert-title">Operating Systems Basics (Cisco)</span></div>
+                        <div class="cert-card"><i class="fas fa-flag-checkered"></i> <span class="cert-title">Advent of Cyber 2024 (TryHackMe)</span></div>
+                    </div>
+                </section>
+            </div>
+
+            <div>
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-user-circle"></i> Profile</h2>
+                    <p>Results-driven Cybersecurity & IT Specialist with strong Linux proficiency, hands-on home lab and SOC simulation experience, and a track record in ethical hacking, penetration testing, network defense, and system hardening. Dedicated to improving security posture and digital literacy.</p>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-laptop-code"></i> Experience</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 style="margin: 0;">Cybercafé Operator / Network & Security Lead</h3>
+                            <span class="timeline-date">01/2021 – Present</span>
+                        </div>
+                        <p style="font-style: italic; margin-top: 5px; margin-bottom: 5px; color: #777;">Mombasa, Kenya</p>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Managed and secured cybercafé network infrastructure; implemented regular patching, updates, and endpoint hardening.</li>
+                                <li>Provided malware hunting and remediation for mobile devices and laptops; successfully removed infections and optimized performance.</li>
+                                <li>Delivered training in basic computer usage and guided customers on digital literacy and cyber hygiene.</li>
+                                <li>Oversaw troubleshooting of systems, printers, and connectivity; ensured uptime and security in a high-traffic environment.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 style="margin: 0;">Freelance IT Support & Cybersecurity Specialist</h3>
+                            <span class="timeline-date">07/2023 – Present</span>
+                        </div>
+                        <p style="font-style: italic; margin-top: 5px; margin-bottom: 5px; color: #777;">Mombasa, Kenya</p>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Delivered system upgrades, penetration tests, and vulnerability assessments for SMEs.</li>
+                                <li>Trained users in phishing awareness, password hygiene, and endpoint protection.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 style="margin: 0;">Store Clerk - <span style="font-weight: normal; color: #555;">Greenhomed Pharmacy</span></h3>
+                            <span class="timeline-date">05/2023 – 03/2024</span>
+                        </div>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Managed POS and inventory systems; troubleshot and maintained IT hardware.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Training</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 style="margin: 0;">BSc in Computer Science - <span style="font-weight: normal; color: #555;">University of the People</span></h3>
+                            <span class="timeline-date">In Progress</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 style="margin: 0;">Ethical Hacking Essentials - <span style="font-weight: normal; color: #555;">USIU-Africa</span></h3>
+                            <span class="timeline-date">Graduated with Distinction (CYBERSHUJAA Program)</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 20px; font-size: 1.2em; border-bottom: 1px dashed #ccc; padding-bottom: 5px;"><i class="fas fa-trophy" style="color: gold; margin-right: 5px;"></i> Key Achievements</h3>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 5px;"><i class="fas fa-caret-right" style="color: var(--primary-color);"></i> Improved small-business security posture by ~30% through structured system hardening.</li>
+                        <li style="margin-bottom: 5px;"><i class="fas fa-caret-right" style="color: var(--primary-color);"></i> Built a Python password policy and management enforcement tool.</li>
+                        <li style="margin-bottom: 5px;"><i class="fas fa-caret-right" style="color: var(--primary-color);"></i> Developed scripts for network management, file conversion, and automated scanning.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Connect with Walter Owuor (Walterhacks) &copy; 2025</p>
+        <div class="footer-links">
+            <a href="https://wlan0tto.pages.dev" target="_blank" title="wlan0tto Portfolio"><i class="fas fa-globe"></i></a>
+            <a href="https://walterhacks.com" target="_blank" title="Walterhacks Blog"><i class="fas fa-terminal"></i></a>
+            
+            <a href="https://wa.me/254743149316" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:ojwallah1@gmail.com" target="_blank" title="Gmail"><i class="fas fa-envelope"></i></a>
+            
+            <a href="https://www.linkedin.com/in/walter-owuor-249676282" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.reddit.com/user/yourredditname" target="_blank" title="Reddit (Placeholder)"><i class="fab fa-reddit"></i></a>
+            <a href="https://x.com/outlaw_sudo" target="_blank" title="X (Twitter) (Placeholder)"><i class="fab fa-x-twitter"></i></a>
+            
+            <a href="https://app.hackthebox.com/profile/204605B81" target="_blank" title="Hack The Box"><i class="fas fa-flag-checkered"></i></a>
+            <a href="https://tryhackme.com/r/p/alpha25last" target="_blank" title="TryHackMe"><i class="fas fa-shield-alt"></i></a>
+            <a href="https://www.credly.com/users/your-credly-user/badges" target="_blank" title="Credly Badges (Placeholder)"><i class="fas fa-id-badge"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
