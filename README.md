@@ -4,8 +4,7 @@
 
 This portfolio showcases my professional experience, skills, and a collection of significant projects. It is deployed and managed efficiently using Cloudflare Pages.
 
-View Live Portfolio Here
-
+[**View Live Portfolio Here**](https://walter-owuor-potfolio.pages.dev/)
 ✨ Features
 
 Responsive Design: Optimized for seamless viewing on all devices (mobile, tablet, and desktop).
